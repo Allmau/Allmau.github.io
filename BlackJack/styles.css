@@ -1,0 +1,28 @@
+.logo {
+	width: 5%;
+	height: 5%;
+}
+
+header {
+	background-color: rgb(5, 70, 5);
+	margin: 0px;
+}
+
+body {
+	background-image: url(https://pl.sterlingcdn.com/wp-content/uploads/sites/3/2018/07/blackjack-classic-background.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	margin: 0%;
+}
+
+p {
+	color: darkgrey;
+	font-size: 120%;
+}
+
+.carta {
+	left: 10%;
+	position: relative;
+	width: 10%;
+	margin-left: -7%;
+}

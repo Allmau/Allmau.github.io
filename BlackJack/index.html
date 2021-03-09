@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
+    <title>BlackJack</title>
+</head>
+<body>
+    <header class="text-center">
+        <img class="logo"src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ad0fa87e-0fa4-4b6e-b1c3-e31271c25be2/d6ibf1c-07d45329-f934-420e-9242-e5c5c6e285d7.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvYWQwZmE4N2UtMGZhNC00YjZlLWIxYzMtZTMxMjcxYzI1YmUyXC9kNmliZjFjLTA3ZDQ1MzI5LWY5MzQtNDIwZS05MjQyLWU1YzVjNmUyODVkNy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.lPIAD_0CHMNxL2Pps02LMThoKlfZ7xoyGVBjc4KJ9uw" alt="logo de blackjack">
+    </header>
+    <main>
+        <div class="text-center mt-2">
+            <button id ="new"onclick="iniciarJuego()" class="btn btn-success" disabled>Juego Nuevo</button>
+            <button id="pick"onclick="hit()" class="btn btn-primary ml-2" disabled>Pedir Carta</button>
+            <button id="stop"onclick="stop()" class="btn btn-warning ml-2"disabled>Detenerse</button>
+            <button id="reset"onclick="reset()" class="btn btn-danger ml-2"disabled>Reiniciar</button>
+        </div>
+        <div class="row container">
+            <div class="col">
+                <p id="player">Jugador - 0 <button class="bt btn-sm btn-secondary" onclick="load()">Cambiar nombre</button></p>
+                <img id = "userCard1"class="carta"src="cartas/red_back.png" alt="">
+                <img id = "userCard2"class="carta"src="cartas/red_back.png" alt="">
+                <img id = "userCard3"class="carta"src="" alt="">
+                <img id = "userCard4"class="carta"src="" alt="">
+                <img id = "userCard5"class="carta"src="" alt="">
+                <img id = "userCard6"class="carta"src="" alt="">
+                <img id = "userCard7"class="carta"src="" alt="">
+                <img id = "userCard8"class="carta"src="" alt="">
+                <img id = "userCard9"class="carta"src="" alt="">
+            </div>
+        </div>
+        <div class="row container">
+            <div class="col">
+                <p id = "compu">Computador - 0 </p>
+                <img id ="comCard1"class="carta"src="cartas/red_back.png" alt="">
+                <img id ="comCard2"class="carta"src="cartas/red_back.png" alt="">
+                <img id ="comCard3"class="carta"src="" alt="">
+                <img id ="comCard4"class="carta"src="" alt="">
+                <img id ="comCard5"class="carta"src="" alt="">
+                <img id ="comCard6"class="carta"src="" alt="">
+                <img id ="comCard7"class="carta"src="" alt="">
+                <img id ="comCard8"class="carta"src="" alt="">
+                <img id ="comCard9"class="carta"src="" alt="">
+            </div>
+        </div>
+        <div class="row container">
+            <div class="col">
+                <p id="totalCartas">Cartas Restantes - 0 </p>
+                <img id ="mazo"class="carta"src="cartas/red_back.png" alt="">
+            </div>
+        </div>
+    </main>
+</body>
+<script src ="https://cdn.jsdelivr.net/npm/underscore@1.12.0/underscore-min.js"></script>
+<script src="app.js"</script></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.all.min.js"></script>
+</html>
