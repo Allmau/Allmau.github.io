@@ -31,7 +31,6 @@ const load=()=>{
         },
         allowOutsideClick: () => !Swal.isLoading()
         })
-        //buttonEnable(1,0,0,0);
         document.getElementById("new").disabled = false;
 }
 
@@ -67,13 +66,7 @@ const buttonEnable=(n,p,s,r)=>{
 
 const pedirCarta=()=>{
 
-    return baraja.length==0 ?(Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'No hay mas cartas, por favor reinicia el juego',
-      }),
-      buttonEnable(0,0,0,1),
-      reload()
+    return baraja.length==0 ?( mensaje('error', 'Oops...','No hay mas cartas, por favor reinicia el juego'), buttonEnable(0,0,0,1), reload()
     ):(
        baraja.pop()
     )
@@ -88,20 +81,25 @@ const valorCarta =(carta) =>{
 }
 
 
+const mensaje=(icono,titulo,texto)=>{
+    Swal.fire({
+        icon: icono,
+        title: titulo,
+        text: texto,
+      })
+}
+
 const iniciarJuego=()=>{
 
-    if (baraja.length<4){Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'No hay cartas suficientes, por favor reinicia el juego',
-      })
+    let card
+    let img
+    userScore=0
+    comScore=0
+
+    if (baraja.length<4){
+        mensaje('error','Oops...','No hay cartas suficientes, por favor reinicia el juego')
     }else{
         reload()
-        let card
-        let img
-        userScore=0
-        comScore=0
-
         for (let index = 1; index <= 4; index++) {
 
             card=pedirCarta();
@@ -153,15 +151,8 @@ const hit=(pl)=>{
 
 const validarScore=(score)=>{
 
-    score > 21 ? (
-        Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Has perdido',
-      }),
-      buttonEnable(1,0,0,1)
-    ):   
-    buttonEnable(1,1,1,1)
+    score > 21 ? (mensaje('error','Oops...','Has perdido'), buttonEnable(1,0,0,1)): buttonEnable(1,1,1,1)
+
 }
 
 
@@ -189,24 +180,7 @@ const stop=()=>{
         hit(0)
         botCard++;
     }
-
-    comScore<=21? comScore==userScore?
-    Swal.fire({
-        icon: 'info',
-        title: 'Ooh...',
-        text: 'Has empatado',
-      }) :
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Has perdido',
-      }) :
-      Swal.fire({
-        icon: 'success',
-        title: 'Hell Yeah...',
-        text: 'Has ganado',
-      })
-      buttonEnable(1,0,0,1);
+    comScore<=21? comScore==userScore? mensaje('info','Ooh...', 'Has empatado') : mensaje('error','Oops...','Has perdido') : mensaje('success','Hell Yeah...','Has ganado'),  buttonEnable(1,0,0,1);
 }
 
 
