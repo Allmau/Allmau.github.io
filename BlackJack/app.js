@@ -54,18 +54,18 @@ const crearBaraja=()=>{
 
 const pedirCarta=()=>{
 
-    if (baraja.length==0) {Swal.fire({
+    return baraja.length==0 ?(Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'No hay mas cartas, por favor reinicia el juego',
-      })
-      document.getElementById("new").disabled = true;
-      document.getElementById("pick").disabled = true;
-      document.getElementById("stop").disabled = true;
+      }),
+      document.getElementById("new").disabled = true,
+      document.getElementById("pick").disabled = true,
+      document.getElementById("stop").disabled = true,
       reload()
-    }else{
-      return baraja.pop();
-      }
+    ):(
+       baraja.pop()
+    )
 }
 
 const valorCarta =(carta) =>{
@@ -83,9 +83,9 @@ const iniciarJuego=()=>{
         text: 'No hay cartas suficientes, por favor reinicia el juego',
       })
     }else{
-        reload()
-        let card;
-        let img;
+        reload();
+        let card
+        let img
         userScore=0
         comScore=0
 
@@ -93,84 +93,75 @@ const iniciarJuego=()=>{
 
             card=pedirCarta();
             img= "cartas/"+card+".png"
-            if (index<=2){
 
-                document.getElementById('userCard'+index).src=img;
+            index<=2?(
+                document.getElementById('userCard'+index).src=img,
                 userScore=userScore+valorCarta(card)
 
-            }else if(index==3){
-
-                document.getElementById('comCard'+(index-2)).src=img;
-                comScore=comScore+valorCarta(card)
+            ) : index==3?(
+                document.getElementById('comCard'+(index-2)).src=img,
+                comScore=comScore+valorCarta(card),
                 bot.innerHTML = 'Computador' +" - " +comScore
 
-            }else{
-                botCard=img
+            ):(
+                botCard=img,
                 comScore=comScore+valorCarta(card)
-            }
-        
+            )
         }
         cartasRestantes.innerHTML='Cartas Restantes: '+ baraja.length
-        user.innerHTML = nombre +" - " +userScore
+        user.innerHTML = nombre +" - " +userScore,
         userCard=3
         validarScore(userScore)
-        document.getElementById("pick").disabled = false;
-        document.getElementById("stop").disabled = false;
+        document.getElementById("pick").disabled = false
+        document.getElementById("stop").disabled = false
     }
 }
 
 
-const hit=()=>{
-
+const hit=(pl)=>{
+    
     let card;
     let img;
     card=pedirCarta();
     img= "cartas/"+card+".png"
-    document.getElementById('userCard'+userCard).src=img
-    cartasRestantes.innerHTML='Cartas Restantes: '+ baraja.length
-    userScore=userScore+valorCarta(card)
-    user.innerHTML = nombre +" - " +userScore
-    userCard++;
-    validarScore(userScore);
-}
-
-const comHit=()=>{
-
-    let card;
-    let img;
-    card=pedirCarta();
-    img= "cartas/"+card+".png"
-    document.getElementById('comCard'+botCard).src=img
-    cartasRestantes.innerHTML='Cartas Restantes: '+ baraja.length
-    comScore=comScore+valorCarta(card)
-    bot.innerHTML = "Computador  - " +comScore
-    userCard++;
+    pl==1?(
+        document.getElementById('userCard'+userCard).src=img,
+        cartasRestantes.innerHTML='Cartas Restantes: '+ baraja.length,
+        userScore=userScore+valorCarta(card),
+        user.innerHTML = nombre +" - " +userScore,
+        userCard++,
+        validarScore(userScore)
+    ):(
+        document.getElementById('comCard'+botCard).src=img,
+        cartasRestantes.innerHTML='Cartas Restantes: '+ baraja.length,
+        comScore=comScore+valorCarta(card),
+        bot.innerHTML = "Computador  - " +comScore
+    )
 }
 
 const validarScore=(score)=>{
 
-    if (score>21){
+    score > 21 ? (
         Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Has perdido',
-      }) 
-        document.getElementById("pick").disabled = true;
-        document.getElementById("stop").disabled = true;
-    }
-    
+      }),
+      document.getElementById("pick").disabled = true,
+      document.getElementById("stop").disabled = true
+    )
 }
 
 const reload=()=>{
     
     for(let index=1; index<=5; index++) {
-        if (index<=2){
-            document.getElementById("userCard"+index).src="cartas/red_back.png" 
-            document.getElementById("comCard"+index).src="cartas/red_back.png" 
-        }else{
-            document.getElementById("userCard"+index).src=""
-            document.getElementById("comCard"+index).src="";
-    }
+        index<=2?(
+            document.getElementById("userCard"+index).src="cartas/red_back.png",
+            document.getElementById("comCard"+index).src="cartas/red_back.png"
+        ) : (
+            document.getElementById("userCard"+index).src="",
+            document.getElementById("comCard"+index).src=""
+        );
     }
 }
 
@@ -181,7 +172,7 @@ const stop=()=>{
     botCard=3
 
     while (comScore<userScore){
-        comHit()
+        Hit(0)
         botCard++;
     }
 
