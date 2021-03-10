@@ -31,8 +31,10 @@ const load=()=>{
         },
         allowOutsideClick: () => !Swal.isLoading()
         })
+        //buttonEnable(1,0,0,0);
         document.getElementById("new").disabled = false;
 }
+
 
 const crearBaraja=()=>{
     baraja=[];
@@ -52,6 +54,17 @@ const crearBaraja=()=>{
 
 }
 
+
+const buttonEnable=(n,p,s,r)=>{
+
+    n==0?document.getElementById("new").disabled = true:document.getElementById("new").disabled = false;
+    p==0?document.getElementById("pick").disabled = true:document.getElementById("pick").disabled = false;
+    s==0?document.getElementById("stop").disabled = true:document.getElementById("stop").disabled = false;
+    r==0?document.getElementById("reset").disabled = true:document.getElementById("reset").disabled = false;
+
+}
+
+
 const pedirCarta=()=>{
 
     return baraja.length==0 ?(Swal.fire({
@@ -59,14 +72,13 @@ const pedirCarta=()=>{
         title: 'Oops...',
         text: 'No hay mas cartas, por favor reinicia el juego',
       }),
-      document.getElementById("new").disabled = true,
-      document.getElementById("pick").disabled = true,
-      document.getElementById("stop").disabled = true,
+      buttonEnable(0,0,0,1),
       reload()
     ):(
        baraja.pop()
     )
 }
+
 
 const valorCarta =(carta) =>{
 
@@ -74,6 +86,7 @@ const valorCarta =(carta) =>{
     return isNaN(valor) ? (valor==='A')? 11:10 : parseInt(valor);
      
 }
+
 
 const iniciarJuego=()=>{
 
@@ -83,7 +96,7 @@ const iniciarJuego=()=>{
         text: 'No hay cartas suficientes, por favor reinicia el juego',
       })
     }else{
-        reload();
+        reload()
         let card
         let img
         userScore=0
@@ -109,11 +122,9 @@ const iniciarJuego=()=>{
             )
         }
         cartasRestantes.innerHTML='Cartas Restantes: '+ baraja.length
-        user.innerHTML = nombre +" - " +userScore,
+        user.innerHTML = nombre +" - " +userScore
         userCard=3
         validarScore(userScore)
-        document.getElementById("pick").disabled = false
-        document.getElementById("stop").disabled = false
     }
 }
 
@@ -139,6 +150,7 @@ const hit=(pl)=>{
     )
 }
 
+
 const validarScore=(score)=>{
 
     score > 21 ? (
@@ -147,10 +159,11 @@ const validarScore=(score)=>{
         title: 'Oops...',
         text: 'Has perdido',
       }),
-      document.getElementById("pick").disabled = true,
-      document.getElementById("stop").disabled = true
-    )
+      buttonEnable(1,0,0,1)
+    ):   
+    buttonEnable(1,1,1,1)
 }
+
 
 const reload=()=>{
     
@@ -165,6 +178,7 @@ const reload=()=>{
     }
 }
 
+
 const stop=()=>{
 
     document.getElementById('comCard2').src=botCard
@@ -172,7 +186,7 @@ const stop=()=>{
     botCard=3
 
     while (comScore<userScore){
-        Hit(0)
+        hit(0)
         botCard++;
     }
 
@@ -192,10 +206,9 @@ const stop=()=>{
         title: 'Hell Yeah...',
         text: 'Has ganado',
       })
-      document.getElementById("pick").disabled = true;
-      document.getElementById("stop").disabled = true;
-      document.getElementById("reset").disabled = false;
+      buttonEnable(1,0,0,1);
 }
+
 
 const reset=()=>{
     location.reload()
