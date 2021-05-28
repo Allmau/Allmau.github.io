@@ -1,0 +1,34 @@
+.contenedor {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.gradiente1 {
+	height: 200px;
+	width: 200px;
+	background: linear-gradient(to right, green, yellow);
+	margin-right: 10px;
+}
+
+.gradiente2 {
+	height: 200px;
+	width: 200px;
+	background: linear-gradient(green, yellow);
+	margin-right: 10px;
+}
+
+.gradiente3 {
+	height: 200px;
+	width: 200px;
+	background: radial-gradient(green, yellow);
+	margin-right: 10px;
+}
+
+.gradiente4 {
+	height: 200px;
+	width: 200px;
+	background: repeating-linear-gradient(green 10%, yellow 20%);
+	margin-right: 10px;
+}
