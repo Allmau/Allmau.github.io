@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicacion del clima</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div class='contenedor'>
+        <div class="buscador">
+            <input type="text" class="pais" id="pais" placeholder="Pais">
+            <input type="text" class="ciudad" id="ciudad" placeholder="Ciudad">
+            <input type="submit" class="buscar" id="buscar" value="Buscar">
+        </div>
+        <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" class="iconoClima" id="iconoClima"alt="icono del clima">
+        <h1 class="paisCiudad" id="paisCiudad">San Jose / Costa Rica</h1>
+        <h2 class="temperatura" id="temperatura">21°C</h2>
+        <h2 class="descripcion" id="descripcion">Parcialmente nublado</h2>
+        <ul>
+            <li id="stermica">Sensacion termica 21°C</li>
+            <li id="humedad">Humedad</li>
+            <li id="longitud">Longitud 45.33</li>
+            <li id="latitud">Latitud 17.68</li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

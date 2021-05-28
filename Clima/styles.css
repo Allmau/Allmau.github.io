@@ -1,0 +1,90 @@
+body {
+	background: linear-gradient(rgb(10, 180, 236), rgb(163, 214, 255));
+}
+
+.contenedor {
+	box-sizing: border-box;
+	height: 100vh;
+	width: 100vh;
+	display: flex;
+	margin-top: 50px;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.contenedor .buscador {
+	height: 60px;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 6;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+.contenedor input {
+	height: 50px;
+	width: 300px;
+	margin: 0 20px;
+	padding: 0 20px;
+	outline: none;
+	background: rgb(73, 171, 201);
+	font-size: 20px;
+	border-radius: 25px 10px;
+	color: whitesmoke;
+}
+
+.contenedor input::placeholder {
+	color: whitesmoke;
+}
+
+.contenedor input[type="submit"] {
+	cursor: pointer;
+	width: 150px;
+	background: white;
+	color: rgb(15, 157, 223);
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.iconoClima {
+	height: 100px;
+	width: 100px;
+	position: absolute;
+	top: 40%;
+	right: 20%;
+}
+
+.paisCiudad {
+	font-size: 40px;
+	position: absolute;
+	top: 40%;
+	left: 15%;
+}
+
+.temperatura {
+	font-size: 40px;
+	position: absolute;
+	bottom: 35%;
+	left: 43%;
+}
+
+.descripcion {
+	font-size: 30px;
+	position: absolute;
+	bottom: 23%;
+	left: 43%;
+}
+
+.contenedor ul {
+	position: absolute;
+	bottom: 3%;
+	left: 3%;
+	list-style: none;
+}
+
+.contenedor ul li {
+	font-size: 20px;
+	margin: 20px 0;
+}
