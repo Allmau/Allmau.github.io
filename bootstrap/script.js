@@ -4,13 +4,11 @@ let total=0;
 const suma=()=>{
         ++total;
         numero.innerText=`${total}`;
-        console.log(total);
     }
 
 const resta=()=>{
     --total;
     numero.innerText=`${total}`;
-    console.log(total);
 }
 
 document.addEventListener('keypress', function(event) {
@@ -20,10 +18,10 @@ document.addEventListener('keypress', function(event) {
 const restarSumar=(tecla)=>{
     switch (tecla) {
         case '-':
-            f2();
+            resta();
             break;
         case '+':
-            f1();
+            suma();
             break;
         default:
             break;
