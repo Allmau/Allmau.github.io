@@ -2,13 +2,13 @@ let numero=document.querySelector('#numero');
 let total=0;
 
 const f1=()=>{
-        total++;
+        ++total;
         numero.innerText=`${total}`;
         console.log(total);
     }
 
 const f2=()=>{
-    total--;
+    --total;
     numero.innerText=`${total}`;
     console.log(total);
 }
