@@ -1,23 +1,23 @@
 let numero=document.querySelector('#numero');
 let total=0;
 
-const f1=()=>{
+const suma=()=>{
         ++total;
         numero.innerText=`${total}`;
         console.log(total);
     }
 
-const f2=()=>{
+const resta=()=>{
     --total;
     numero.innerText=`${total}`;
     console.log(total);
 }
 
 document.addEventListener('keypress', function(event) {
-    reproducirSonido(event.key);
+    restarSumar(event.key);
 })
 
-const reproducirSonido=(tecla)=>{
+const restarSumar=(tecla)=>{
     switch (tecla) {
         case '-':
             f2();
