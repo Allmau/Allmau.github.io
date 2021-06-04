@@ -2,14 +2,14 @@ let numero=document.querySelector('#numero');
 let total=0;
 
 const f1=()=>{
+        total++;
         numero.innerText=`${total}`;
-        total=total+1;
         console.log(total);
     }
 
 const f2=()=>{
+    total--;
     numero.innerText=`${total}`;
-    total=total-1;
     console.log(total);
 }
 
